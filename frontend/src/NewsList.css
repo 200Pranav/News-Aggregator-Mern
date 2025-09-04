@@ -1,0 +1,21 @@
+
+
+.news-container {
+  width: 90%;
+  margin: auto;
+  padding: 20px;
+}
+
+.header {
+  text-align: center;
+}
+
+.section-title {
+  margin-top: 20px;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}

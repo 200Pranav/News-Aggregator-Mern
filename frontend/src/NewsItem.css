@@ -1,0 +1,19 @@
+.news-card {
+  background: #201d1c;
+  padding: 15px;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+  
+}
+.news-card:hover{
+  transform: translateY(-9px);
+  box-shadow: 0 5px 8px rgba(163, 154, 154, 0.811);
+}
+.news-card h3 {
+  margin-top: 0;
+  color: #fafafc;
+}
+
+.news-card p {
+  color: #efeded;
+}

@@ -3,11 +3,11 @@
     "concurrently": "^9.2.1"
   },
   "scripts": {
-  "start": "concurrently \"npm run server\" \"npm run client\"",
-  "server": "cd backend && npm start",
-  "client": "cd frontend && npm start"
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd backend && npm start",
+    "client": "cd frontend && npm start"
+  },
+  "dependencies": {
+    "cors": "^2.8.5"
   }
-
 }
-
-
