@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 import "./Auth.css";
+import API_BASE_URL from "./config";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -15,7 +16,7 @@ function Login() {
     setError("");
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/login", {
+      const res = await fetch(`${API_BASE_URL}/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -23,8 +24,8 @@ function Login() {
       const data = await res.json();
 
       if (res.ok) {
-        login(data); // ✅ store user in context
-        navigate("/"); // ✅ go to News page
+        login(data);
+        navigate("/");
       } else {
         setError(data.message);
       }

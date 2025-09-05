@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Auth.css"; 
+import "./Auth.css";
+import API_BASE_URL from "./config";
 
 function Signup() {
-  const [name, setName] = useState("");   // 👈 Added state for name
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -14,20 +15,19 @@ function Signup() {
     setError("");
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/signup", {
+      const res = await fetch(`${API_BASE_URL}/auth/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, password }),  // 👈 include name
+        body: JSON.stringify({ name, email, password }),
       });
 
       const data = await res.json();
 
       if (res.ok) {
-        navigate("/login"); // redirect to Login after successful signup
+        navigate("/login");
       } else {
         setError(data.message);
       }
-
     } catch (err) {
       setError("Something went wrong");
     }

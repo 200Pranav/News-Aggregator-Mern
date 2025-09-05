@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./NewsForm.css";
+import API_BASE_URL from "./config";
 
 function NewsForm({ onNewsAdded }) {
   const [title, setTitle] = useState("");
@@ -10,7 +11,7 @@ function NewsForm({ onNewsAdded }) {
     const newArticle = { title, content };
 
     try {
-      const response = await fetch("http://localhost:5000/api/news", {
+      const response = await fetch(`${API_BASE_URL}/news`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newArticle),

@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import NewsForm from "./NewsForm";
 import NewsItem from "./NewsItem";
 import "./NewsList.css";
+import API_BASE_URL from "./config";
 
 function NewsList() {
   const [news, setNews] = useState([]);
 
   const fetchNews = () => {
-    fetch("http://localhost:5000/api/news")
+    fetch(`${API_BASE_URL}/news`)
       .then((res) => res.json())
       .then((data) => setNews(data))
       .catch((err) => console.error("Error fetching news:", err));
